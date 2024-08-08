@@ -1,0 +1,25 @@
+import datetime
+from dateutil.relativedelta import relativedelta
+
+
+def next_n_month(start_date, n):
+    """
+    Based on given parameters, list our next N months
+    :param start_month: date | "%Y-%m-%d"
+    :param n:int
+    :return:list
+    """
+
+    # define variable to save date list
+    list_next_n_month = []
+
+    # calculate next N month
+    for _ in range(0, n, 1):
+
+        next_month = datetime.datetime.strftime(start_date, "%Y-%m-%d")
+
+        list_next_n_month.append(next_month)
+
+        start_date = start_date + relativedelta(months=1)
+
+    return list_next_n_month
